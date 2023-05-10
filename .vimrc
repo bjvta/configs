@@ -1,6 +1,7 @@
 set number
 set mouse=a
 set numberwidth=1
+set smartindent
 set clipboard=unnamedplus
 syntax on
 set showcmd
@@ -10,11 +11,20 @@ set encoding=utf-8
 set showmatch
 set sw=2
 set relativenumber
+
+set re=1
+set nowrap
+set noswapfile
+set incsearch
+set scrolloff=8
+set guicursor=
+
 "" set termguicolors
 so ~/.vim/plugins.vim
 so ~/.vim/plugin-config.vim
 so ~/.vim/maps.vim
 
+vmap <C-p> y'>p
 "" colorscheme gruvbox
 "" set bg=light
 "" colorscheme monokai
@@ -29,12 +39,14 @@ so ~/.vim/maps.vim
 "" colorscheme onehalflight
 "" let g:airline_theme='onehalfdark'
 
-
+set termguicolors
 
 "" colorscheme PaperColor
 "" dark mode enabled?
 if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-  colorscheme monokai_pro
+  let ayucolor="dark"   " for dark version of theme
+  colorscheme ayu
+  "" colorscheme monokai_pro
 	"" colorscheme onehalfdark
   "" set background=dark
 else

@@ -1,5 +1,19 @@
 call plug#begin('~/.vim/plugged')
 
+
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'dense-analysis/ale'
+Plug 'vim-airline/vim-airline'
+
+
 " syntax
 Plug 'sheerun/vim-polyglot'
 " Plug 'HerringtonDarkholme/yats.vim'
@@ -52,8 +66,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'christoomey/vim-tmux-navigator'
 " autocomplete
 " Plug 'sirver/ultisnips'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " test
 "" Plug 'tyewang/vimux-jest-test'
