@@ -8,6 +8,32 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Function to install Neovim
+install_neovim() {
+    echo "Installing Neovim..."
+    
+    # Try installing via AppImage first (fastest)
+    if [ "$(uname)" = "Linux" ]; then
+        echo "Installing Neovim via AppImage..."
+        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+        chmod u+x nvim.appimage
+        sudo mv nvim.appimage /usr/local/bin/nvim
+    else
+        # For macOS, try installing via Homebrew with --HEAD flag (faster than stable)
+        if command_exists brew; then
+            echo "Installing Neovim via Homebrew (HEAD version)..."
+            brew install --HEAD neovim
+        else
+            # If Homebrew is not available, try direct download
+            echo "Installing Neovim via direct download..."
+            curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz
+            tar xzf nvim-macos.tar.gz
+            sudo mv nvim-macos/bin/nvim /usr/local/bin/
+            rm -rf nvim-macos nvim-macos.tar.gz
+        fi
+    fi
+}
+
 # Check and install prerequisites
 echo "Checking prerequisites..."
 
@@ -25,8 +51,7 @@ fi
 
 # Install Neovim if not installed
 if ! command_exists nvim; then
-    echo "Installing Neovim..."
-    brew install neovim
+    install_neovim
 fi
 
 # Create necessary directories
