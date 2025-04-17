@@ -19,6 +19,13 @@ set incsearch
 set scrolloff=8
 set guicursor=
 
+" === Load vim-plug for Neovim ===
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+runtime autoload/plug.vim
+
 "" set termguicolors
 so ~/.vim/plugins.vim
 so ~/.vim/plugin-config.vim
@@ -45,7 +52,12 @@ set termguicolors
 "" dark mode enabled?
 if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
   let ayucolor="dark"   " for dark version of theme
-  colorscheme ayu
+  try
+    colorscheme ayu
+  catch /^Vim\%((\a\+)\)\=:E185/
+    echom "Warning: ayu theme not found. Using default."
+    colorscheme default
+  endtry
   "" colorscheme monokai_pro
 	"" colorscheme onehalfdark
   "" set background=dark
