@@ -32,6 +32,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
+let g:NERDTreeWinPos = "right"
 let NERDTreeMapOpenInTab='\t'
 let g:NERDTreeWinSize=60
 let g:Tlist_WinWidth=60
