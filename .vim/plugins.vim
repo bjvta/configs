@@ -89,4 +89,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-repeat'
 
+" Ruby specific
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'thoughtbot/vim-rspec'
+Plug 'ecomba/vim-ruby-refactoring'
+
 call plug#end()
