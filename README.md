@@ -45,6 +45,8 @@ The setup script will:
 - `Space + gl` - Git pull
 - `Space + blame` - Show Git blame
 - `Space + diff` - Show Git diff
+- Use `-` to stage/unstage
+- Use `cc` to commit
 
 ### Code Navigation
 - `gd` - Go to definition
