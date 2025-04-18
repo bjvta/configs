@@ -3,3 +3,4 @@ plugged/*
 .DS_Store
 .netrwhist
 startup.log
+node_modules/
