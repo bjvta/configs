@@ -53,10 +53,11 @@ set termguicolors
 if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
   let ayucolor="dark"   " for dark version of theme
   try
-    colorscheme ayu
+    colorscheme monokai_pro
   catch /^Vim\%((\a\+)\)\=:E185/
     echom "Warning: ayu theme not found. Using default."
-    colorscheme default
+    "" colorscheme default
+    colorscheme monokai
   endtry
   "" colorscheme monokai_pro
 	"" colorscheme onehalfdark
@@ -87,3 +88,34 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+
+set rtp+=/opt/homebrew/opt/fzf
+
+" CoC configuration
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)

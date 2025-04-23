@@ -1,3 +1,12 @@
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH"
+
+# Add Python user bin to PATH
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
 alias n=nvim
 alias dcd='docker-compose down'
 export ZSH="$HOME/.oh-my-zsh"
@@ -52,8 +61,3 @@ export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
-
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

@@ -10,7 +10,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'dense-analysis/ale'
+" Commenting out ALE since we're using CoC for linting
+" Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 
 
@@ -82,7 +83,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
-Plug 'davidhalter/jedi-vim'
+" Commenting out jedi-vim since we're using CoC for Python
+" Plug 'davidhalter/jedi-vim'
 
 " git
 Plug 'tpope/vim-fugitive'
