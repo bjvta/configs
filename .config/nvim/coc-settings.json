@@ -25,6 +25,15 @@
           "diagnostics": true,
           "completion": true
         }
+      },
+      "typescript": {
+        "command": "typescript-language-server",
+        "args": ["--stdio"],
+        "filetypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
+        "rootPatterns": ["package.json", "tsconfig.json", "jsconfig.json"],
+        "initializationOptions": {
+          "hostInfo": "neovim"
+        }
       }
     }
   }
