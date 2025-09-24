@@ -4,3 +4,4 @@ plugged/*
 .netrwhist
 startup.log
 node_modules/
+.zshrc.local

@@ -128,6 +128,14 @@ fi
 
 ln -sf ~/configs/.vim ~/.vim
 
+# Setup zshrc symlink
+if [ -f ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
+    echo "Backing up existing ~/.zshrc to ~/.zshrc.backup..."
+    mv ~/.zshrc ~/.zshrc.backup
+fi
+
+ln -sf ~/configs/.zshrc ~/.zshrc
+
 # Install vim-plug for Neovim
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     echo "Installing vim-plug for Neovim..."

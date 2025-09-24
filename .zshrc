@@ -27,9 +27,6 @@ export ARCHFLAGS="-arch $(uname -m)"
 
 alias n=nvim
 alias dcd='docker compose down'
-alias t=/Users/brandon/Documents/Workspace/Trendig
-alias a=/Users/brandon/Documents/Workspace/Acorns
-alias getrx=/Users/brandon/Documents/Workspace/AcklenAvenue/getrx-api
 
 export PATH=/opt/homebrew/bin:$PATH
 
@@ -51,4 +48,8 @@ function ruby_prompt_info() {
 
 PROMPT='$(ruby_prompt_info)'$PROMPT
 export PATH="/Applications/Hyper.app/Contents/MacOS:$PATH"
-eval "$(/opt/homebrew/Caskroom/miniconda/base/bin/conda shell.zsh hook)"
+
+# Load local configuration (ignored by git)
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
