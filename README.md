@@ -107,6 +107,35 @@ The setup script will:
 - Install vim-plug if not already installed
 - Install all plugins
 
+## Post-Setup Configuration
+
+### 3. Configure Terminal Font (Important for Icons)
+
+For proper file icons in Neovim/Vim file explorer, you **must** configure your terminal to use the installed Nerd Font:
+
+**Terminal.app (macOS default):**
+1. Open Terminal → Preferences
+2. Go to Profiles tab
+3. Select Text tab
+4. Click "Change" next to Font
+5. Choose **"JetBrainsMono Nerd Font"** (not just "JetBrainsMono")
+6. Set size to 12-14pt
+7. Restart terminal
+
+**iTerm2:**
+1. iTerm2 → Preferences → Profiles
+2. Select Text tab
+3. Change Font to **"JetBrainsMono Nerd Font"**
+4. Restart iTerm2
+
+**VS Code Terminal:**
+1. Settings → Terminal → Integrated: Font Family
+2. Set to: `'JetBrainsMono Nerd Font', monospace`
+
+**Other terminals:** Look for Font/Typography settings and select **"JetBrainsMono Nerd Font"**
+
+⚠️ **Note:** If file icons don't appear properly in NERDTree, it's usually because the terminal font isn't set to the Nerd Font variant.
+
 ## Key Mappings
 
 ### Basic Navigation
