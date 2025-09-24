@@ -46,7 +46,17 @@ function ruby_prompt_info() {
   fi
 }
 
-PROMPT='$(ruby_prompt_info)'$PROMPT
+function node_prompt_info() {
+  if [ -f package.json ]; then
+    echo "%{$fg[green]%}(node-$(node -v | cut -d'v' -f2))%{$reset_color%} "
+  fi
+}
+
+function version_prompt_info() {
+  echo "$(ruby_prompt_info)$(node_prompt_info)"
+}
+
+PROMPT='$(version_prompt_info)'$PROMPT
 export PATH="/Applications/Hyper.app/Contents/MacOS:$PATH"
 
 # Load local configuration (ignored by git)

@@ -25,14 +25,30 @@
           "diagnostics": true,
           "completion": true
         }
-      },
-      "typescript": {
-        "command": "typescript-language-server",
-        "args": ["--stdio"],
-        "filetypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
-        "rootPatterns": ["package.json", "tsconfig.json", "jsconfig.json"],
-        "initializationOptions": {
-          "hostInfo": "neovim"
+      }
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
+      "rootPatterns": ["package.json", "tsconfig.json", "jsconfig.json"],
+      "initializationOptions": {
+        "hostInfo": "neovim"
+      }
+    },
+    "python": {
+      "command": "pylsp",
+      "filetypes": ["python"],
+      "rootPatterns": ["pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git", "."],
+      "initializationOptions": {},
+      "settings": {
+        "pylsp": {
+          "plugins": {
+            "pycodestyle": {"enabled": true},
+            "pyflakes": {"enabled": true},
+            "pylint": {"enabled": true},
+            "autopep8": {"enabled": true}
+          }
         }
       }
     }

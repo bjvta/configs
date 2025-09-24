@@ -88,6 +88,11 @@ if ! command_exists fzf; then
     $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 fi
 
+if ! command_exists ag; then
+    echo "Installing the_silver_searcher (ag)..."
+    brew install the_silver_searcher
+fi
+
 if ! command_exists rvm; then
     echo "Installing RVM (Ruby Version Manager)..."
     # Import RVM's GPG keys
