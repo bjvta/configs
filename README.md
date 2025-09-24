@@ -90,7 +90,7 @@ Symbolic Links:
 
 1. Clone this repository to your home directory:
    ```bash
-   git clone <repository-url> ~/configs
+   git clone https://github.com/bjvta/configs ~/configs
    ```
 
 2. Make the setup script executable and run it:
@@ -100,6 +100,8 @@ Symbolic Links:
    ```
 
 The setup script will:
+- Install required dependencies (Homebrew, Vim, Neovim, NVM/Node.js, Yarn, GPG, fzf, RVM, Oh My Zsh)
+- Configure git global settings
 - Create necessary directories
 - Set up symbolic links for both Vim and Neovim
 - Install vim-plug if not already installed

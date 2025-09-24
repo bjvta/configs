@@ -1,1 +1,1 @@
-/Users/brandon/configs/.vim
+/Users/jason/configs/.vim

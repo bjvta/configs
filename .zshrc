@@ -1,14 +1,5 @@
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Add RVM to PATH for scripting
-export PATH="$HOME/.rvm/bin:$PATH"
-
-# Add Python user bin to PATH
-export PATH="$HOME/Library/Python/3.9/bin:$PATH"
-
-alias n=nvim
-alias dcd='docker-compose down'
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -20,44 +11,44 @@ plugins=(
   dnf
   zsh-syntax-highlighting
   zsh-autosuggestions
-  asdf
 )
 
 source $ZSH/oh-my-zsh.sh
 
-export FZF_DEFAULT_COMMAND='find . -type f'
+export LANG=en_US.UTF-8
 
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
+export ARCHFLAGS="-arch $(uname -m)"
 
-NPM_PACKAGES="${HOME}/.npm-packages"
+alias n=nvim
+alias dcd='docker compose down'
+alias t=/Users/brandon/Documents/Workspace/Trendig
+alias a=/Users/brandon/Documents/Workspace/Acorns
+alias getrx=/Users/brandon/Documents/Workspace/AcklenAvenue/getrx-api
 
-export PATH="$PATH:$NPM_PACKAGES/bin"
-
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
-export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+export PATH=/opt/homebrew/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export rvm_silence_path_mismatch_check_flag=1
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH="$HOME/.rvm/gems/ruby-3.2.2/bin:$HOME/.rvm/gems/ruby-3.2.2@global/bin:$HOME/.rvm/rubies/ruby-3.2.2/bin:$HOME/.rvm/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+function ruby_prompt_info() {
+  if [ -f Gemfile ] || [ -f .ruby-version ]; then
+    echo "%{$fg[red]%}($(ruby -v | cut -d' ' -f2)@$(rvm current | cut -d'@' -f2))%{$reset_color%} "
+  fi
+}
+
+PROMPT='$(ruby_prompt_info)'$PROMPT
+export PATH="/Applications/Hyper.app/Contents/MacOS:$PATH"
+eval "$(/opt/homebrew/Caskroom/miniconda/base/bin/conda shell.zsh hook)"
