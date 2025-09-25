@@ -1,8 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
@@ -40,26 +47,13 @@ export rvm_silence_path_mismatch_check_flag=1
 
 export PATH="$HOME/.rvm/gems/ruby-3.2.2/bin:$HOME/.rvm/gems/ruby-3.2.2@global/bin:$HOME/.rvm/rubies/ruby-3.2.2/bin:$HOME/.rvm/bin:$PATH"
 
-function ruby_prompt_info() {
-  if [ -f Gemfile ] || [ -f .ruby-version ]; then
-    echo "%{$fg[red]%}($(ruby -v | cut -d' ' -f2)@$(rvm current | cut -d'@' -f2))%{$reset_color%} "
-  fi
-}
 
-function node_prompt_info() {
-  if [ -f package.json ]; then
-    echo "%{$fg[green]%}(node-$(node -v | cut -d'v' -f2))%{$reset_color%} "
-  fi
-}
-
-function version_prompt_info() {
-  echo "$(ruby_prompt_info)$(node_prompt_info)"
-}
-
-PROMPT='$(version_prompt_info)'$PROMPT
 export PATH="/Applications/Hyper.app/Contents/MacOS:$PATH"
 
 # Load local configuration (ignored by git)
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

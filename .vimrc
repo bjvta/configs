@@ -102,6 +102,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Make sure CoC is working
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Add additional jump mappings
+nmap <silent> <C-]> <Plug>(coc-definition)
+nmap <silent> <C-t> :CocCommand document.jumpToPrevLocation<CR>
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
